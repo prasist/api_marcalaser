@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProductResource;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -20,6 +21,23 @@ class ProductController extends Controller
         ->with('colors');
 
         $params = $request->all();
+
+        // Page limit
+        if (!empty($params['limit'])) {
+            $limit = Arr::pull($params, 'limit');
+        }
+
+        // Sort field
+        if (!empty($params['sort'])) {
+            $sort = Arr::pull($params, 'sort');
+        } else {
+            $sort = 'product_title';
+        }
+
+        // Sort direction ASC or DESC
+        if (!empty($params['direction'])) {
+            $direction = Arr::pull($params, 'direction');
+        }
 
         foreach ($params as $key => $value) {
 
@@ -43,9 +61,10 @@ class ProductController extends Controller
             }
         }
 
-        //lad($queryBuilder->dd());
+        $queryBuilder->orderBy($sort, $direction ?? 'Asc');
 
-        return new ProductResource($queryBuilder->paginate());
+        return new ProductResource($queryBuilder->paginate($limit ?? 100));
+
     }
 
     /**
