@@ -44,7 +44,7 @@ class TestController extends Controller
 
         // Result
         // var_dump($response->getBody()->getContents());
-        return ($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
 
 
         /** SEARCH PRODUCTS EXAMPLE */
