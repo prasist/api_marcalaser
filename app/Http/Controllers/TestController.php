@@ -30,7 +30,8 @@ class TestController extends Controller
             'Accept'        => 'application/json',
         ];
 
-        /** SEARCH CATEGORIES EXAMPLE */
+        /*
+        // SEARCH CATEGORIES EXAMPLE
         // Query params
         $params = [
             'category' => 'Black'
@@ -45,10 +46,7 @@ class TestController extends Controller
         // Result
         // var_dump($response->getBody()->getContents());
         $test = $response->getBody()->getContents();
-        return $test["data"]->category;
-
-        return json_encode($response->getBody()->getContents(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
+        */
 
         /** SEARCH PRODUCTS EXAMPLE */
         // Query params
@@ -64,7 +62,8 @@ class TestController extends Controller
         ]);
 
         // Result
-        var_dump($response->getBody()->getContents());
+        //var_dump($response->getBody()->getContents());
+        dd(json_decode($response->getBody()->getContents()));
 
 
     }
