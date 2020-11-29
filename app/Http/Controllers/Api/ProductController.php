@@ -52,8 +52,8 @@ class ProductController extends Controller
             } else {
 
                 // Search over relationships
-                if ($key == "category" || $key == "subcategory") {
-                    $queryBuilder->orWhereHas(Str::plural($key), function($q) use ($key, $value)
+                if ($key == "category" || $key == "subcategory" || $key == "color") {
+                    $queryBuilder->whereHas(Str::plural($key), function($q) use ($key, $value)
                     {
                         $q->where($key, 'like', '%'. $value . '%');
                     });
