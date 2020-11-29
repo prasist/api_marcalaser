@@ -44,6 +44,9 @@ class TestController extends Controller
 
         // Result
         // var_dump($response->getBody()->getContents());
+        $test = $response->getBody()->getContents();
+        return $test["data"]->category;
+
         return json_encode($response->getBody()->getContents(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
 
