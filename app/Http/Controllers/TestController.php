@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
 
+/* BASE API TEST */
 class TestController extends Controller
 {
     // How to connect and consume a simple API request
