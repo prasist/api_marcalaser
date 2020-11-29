@@ -12,41 +12,19 @@ use Illuminate\Support\Facades\Http;
 class TestController extends Controller
 {
     // How to connect and consume a simple API request
-    // Here you can test
     public function index()
     {
         // Marca Laser API Token
-        //teste
         $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzgzMjc3MyIsIm5hbWUiOiJNYXJjYUxhc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.-2XQw_TDJBVXznc_Z-Z2DLAZCezBHT6IK-9nPgjx_Zg';
 
         // API Base - env file
-        //$client = new Client(['base_uri' => env('API_MARCALASER')]);
-        $client = new Client(['base_uri' => 'http://api-marcalaser.valordistributions.com/api/']);
-
+        $client = new Client(['base_uri' => env('API_MARCALASER')]);
 
         // Connection params
         $headers = [
             'Authorization' => 'Bearer ' . $token,
             'Accept'        => 'application/json',
         ];
-
-        /*
-        // SEARCH CATEGORIES EXAMPLE
-        // Query params
-        $params = [
-            'category' => 'Black'
-        ];
-
-        // Request API (Category)
-        $response = $client->request('GET', 'category', [
-                'headers' => $headers,
-                'query' => $params
-        ]);
-
-        // Result
-        // var_dump($response->getBody()->getContents());
-        $test = $response->getBody()->getContents();
-        */
 
         /** SEARCH PRODUCTS EXAMPLE */
         // Query params
@@ -61,10 +39,11 @@ class TestController extends Controller
                 'query' => $params
         ]);
 
-        // Result
-        //var_dump($response->getBody()->getContents());
-        dd(json_decode($response->getBody()->getContents()));
+        echo "Testing API products request - filtering category => Black, product_title => Caderno";
+        echo "\n";
 
+        // Result
+        dd(json_decode($response->getBody()->getContents()));
 
     }
 
