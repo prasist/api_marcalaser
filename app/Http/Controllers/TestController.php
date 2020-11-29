@@ -19,7 +19,9 @@ class TestController extends Controller
         $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzgzMjc3MyIsIm5hbWUiOiJNYXJjYUxhc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.-2XQw_TDJBVXznc_Z-Z2DLAZCezBHT6IK-9nPgjx_Zg';
 
         // API Base - env file
-        $client = new Client(['base_uri' => env('API_MARCALASER')]);
+        //$client = new Client(['base_uri' => env('API_MARCALASER')]);
+        $client = new Client(['base_uri' => 'http://api-marcalaser.valordistributions.com/api/']);
+
 
         // Connection params
         $headers = [
