@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->boolean('display')->default(1)->nullable();
             $table->string('image_url')->nullable();
             $table->string('icon_url')->nullable();
-            $table->string('hex_color')->nullable();
             $table->integer('parent_id')->nullable();
         });
     }
