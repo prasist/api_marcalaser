@@ -18,7 +18,7 @@ class CreateProductImagesTable extends Migration
             $table->integer('product_id');
             $table->string('image_url');
             $table->string('thumb_image_url')->nullable();
-            $table->boolean('is_defautl')->default(0);
+            $table->boolean('is_default')->default(0);
             $table->timestamps();
         });
     }
