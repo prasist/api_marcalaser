@@ -43,7 +43,8 @@ class TestController extends Controller
         ]);
 
         // Result
-        var_dump($response->getBody()->getContents());
+        // var_dump($response->getBody()->getContents());
+        return ($response->getBody()->getContents());
 
 
         /** SEARCH PRODUCTS EXAMPLE */
