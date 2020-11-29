@@ -33,7 +33,7 @@ class TestController extends Controller
         /** SEARCH CATEGORIES EXAMPLE */
         // Query params
         $params = [
-            'category' => 'Blue'
+            'category' => 'Black'
         ];
 
         // Request API (Category)
